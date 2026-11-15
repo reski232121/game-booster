@@ -10,6 +10,7 @@ import com.nexus.gamehub.feature.device.DeviceScreen
 import com.nexus.gamehub.feature.notes.NotesScreen
 import com.nexus.gamehub.feature.overlay.OverlayScreen
 import com.nexus.gamehub.feature.timer.TimerScreen
+import com.nexus.gamehub.feature.turbo.TurboScreen
 import com.nexus.gamehub.feature.saver.SaverScreen
 import com.nexus.gamehub.feature.settings.SettingsScreen
 import com.nexus.gamehub.ui.components.Title
@@ -19,8 +20,8 @@ import com.nexus.gamehub.ui.theme.*
     Column {
         Column(Modifier.padding(start = 16.dp, top = 16.dp)) { Title("Tools") }
         ScrollableTabRow(selectedTabIndex = t, containerColor = Bg, contentColor = Neon, edgePadding = 8.dp) {
-            listOf("Overlay", "Timer", "Catatan", "Hemat", "Setelan", "Device").forEachIndexed { i, n -> Tab(selected = t == i, onClick = { t = i }, text = { Text(n) }) }
+            listOf("Turbo", "Overlay", "Timer", "Catatan", "Hemat", "Setelan", "Device").forEachIndexed { i, n -> Tab(selected = t == i, onClick = { t = i }, text = { Text(n) }) }
         }
-        when (t) { 0 -> OverlayScreen(); 1 -> TimerScreen(); 2 -> NotesScreen(); 3 -> SaverScreen(); 4 -> SettingsScreen(); else -> DeviceScreen() }
+        when (t) { 0 -> TurboScreen(); 1 -> OverlayScreen(); 2 -> TimerScreen(); 3 -> NotesScreen(); 4 -> SaverScreen(); 5 -> SettingsScreen(); else -> DeviceScreen() }
     }
 }
