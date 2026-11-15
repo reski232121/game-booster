@@ -30,7 +30,7 @@ import kotlinx.coroutines.delay
         }
         NeonCard {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Column(Modifier.weight(1f)) { Text("HUD melayang"); Text("Refresh layar, RAM, suhu (bukan FPS game)", style = MaterialTheme.typography.bodySmall) }
+                Column(Modifier.weight(1f)) { Text("HUD melayang"); Text("Refresh layar, RAM, suhu, ping (bukan FPS game)", style = MaterialTheme.typography.bodySmall) }
                 Switch(OverlayState.hud, { OverlayState.hud = it; OverlayService.sync(ctx) }, enabled = granted)
             }
         }
