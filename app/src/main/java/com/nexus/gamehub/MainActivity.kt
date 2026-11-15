@@ -20,6 +20,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         com.nexus.gamehub.core.AppSettings.load(this)
+        if (!com.nexus.gamehub.core.TurboState.active) com.nexus.gamehub.core.SessionRestore.restoreIfPending(this)
         setContent { GameHubTheme {
             var tab by rememberSaveable { mutableIntStateOf(0) }
             val items = listOf("Library" to Icons.Filled.Home, "Boost" to Icons.Filled.Star, "Monitor" to Icons.Filled.Info, "Ping" to Icons.Filled.Refresh, "Tools" to Icons.Filled.Build)
