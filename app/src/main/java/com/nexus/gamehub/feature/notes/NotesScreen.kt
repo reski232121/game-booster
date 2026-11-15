@@ -12,7 +12,8 @@ import com.nexus.gamehub.ui.components.*
 import com.nexus.gamehub.ui.theme.*
 private fun clean(s: String) = s.replace("\n", " ").replace("\t", " ").trim()
 @Composable fun NotesScreen() {
-    val sp = remember { LocalContext.current.getSharedPreferences("notes", 0) }
+    val ctx = LocalContext.current
+    val sp = remember { ctx.getSharedPreferences("notes", 0) }
     var items by remember { mutableStateOf((sp.getString("items", "") ?: "").lines().filter { it.isNotBlank() }) }
     var game by remember { mutableStateOf("") }; var note by remember { mutableStateOf("") }
     fun save(l: List<String>) { items = l; sp.edit().putString("items", l.joinToString("\n")).apply() }
