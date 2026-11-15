@@ -10,7 +10,8 @@ import com.nexus.gamehub.ui.theme.*
 import kotlinx.coroutines.delay
 private fun fmt(s: Long) = "%02d:%02d:%02d".format(s / 3600, s / 60 % 60, s % 60)
 @Composable fun TimerScreen() {
-    val sp = remember { LocalContext.current.getSharedPreferences("timer", 0) }
+    val ctx = LocalContext.current
+    val sp = remember { ctx.getSharedPreferences("timer", 0) }
     var start by remember { mutableLongStateOf(sp.getLong("start", 0)) }
     var acc by remember { mutableLongStateOf(sp.getLong("acc", 0)) }
     var now by remember { mutableLongStateOf(System.currentTimeMillis()) }
